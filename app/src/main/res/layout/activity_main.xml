@@ -1,0 +1,33 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="PRESS TO GET NAMES"
+        android:onClick="onClick"
+        android:background="#ffffa81c"
+        android:layout_alignParentTop="true"
+        android:id="@+id/get_name_button" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/get_name_button"
+        android:layout_above="@+id/clear_button"
+        android:id="@+id/list_view" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CLEAR"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/clear_button"
+        android:background="#ff68ffa3"
+        android:onClick="onClick"
+
+        />
+
+
+</RelativeLayout>
