@@ -1,9 +1,10 @@
 package com.example.jsonparsing.activites;
 
-import android.app.Activity;
+
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -11,8 +12,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.jsonparsing.R;
-import com.example.jsonparsing.util.AppConstants;
 import com.example.jsonparsing.util.Data;
+import com.example.jsonparsing.util.MainFragment;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 
@@ -21,18 +22,25 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-import java.util.List;
 
-
-public class MainActivity extends Activity implements AppConstants {
+public class MainActivity extends FragmentActivity {
     ListView listView;
     ArrayAdapter arrayAdapter;
     ProgressDialog progressDialog;
+    private MainFragment mainFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (savedInstanceState == null) {
+            // Add the fragment on initial activity setup
+            mainFragment = new MainFragment();
+            getSupportFragmentManager().beginTransaction().add(android.R.id.content, mainFragment).commit();
+        } else {
+            // Or set the fragment from restored state info
+            mainFragment = (MainFragment) getSupportFragmentManager().findFragmentById(android.R.id.content);
+        }
         progressDialog = new ProgressDialog(this);
         progressDialog.setCancelable(false);
         setContentView(R.layout.activity_main);
@@ -71,7 +79,7 @@ public class MainActivity extends Activity implements AppConstants {
 
     public void getList() {
         AsyncHttpClient client = new AsyncHttpClient();
-        client.get(this, "https://graph.facebook.com/me/friends?access_token=" + ACCESS_TOKEN, new AsyncHttpResponseHandler() {
+        client.get(this, "https://graph.facebook.com/me/friends?access_token=" + Data.ACCESS_TOKEN, new AsyncHttpResponseHandler() {
                     @Override
                     public void onSuccess(int i, Header[] headers, byte[] bytes) {
 

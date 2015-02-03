@@ -3,19 +3,13 @@ package com.example.jsonparsing.activites;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.net.NetworkInfo;
 import android.net.Uri;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.jsonparsing.R;
-import com.example.jsonparsing.util.AppConstants;
+import com.example.jsonparsing.util.Data;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 
@@ -23,7 +17,7 @@ import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Details extends Activity implements AppConstants {
+public class Details extends Activity {
     String id;
     ProgressDialog progressDialog;
     String profileUrl = "Default:";
@@ -57,7 +51,7 @@ public class Details extends Activity implements AppConstants {
 
     public void getDetails() {
         AsyncHttpClient client = new AsyncHttpClient();
-        client.get(this, "https://graph.facebook.com/" + id + "?access_token=" + ACCESS_TOKEN, new AsyncHttpResponseHandler() {
+        client.get(this, "https://graph.facebook.com/" + id + "?access_token=" + Data.ACCESS_TOKEN, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
                 String s = new String(bytes);
