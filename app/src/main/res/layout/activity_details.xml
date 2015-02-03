@@ -10,20 +10,20 @@
         android:weightSum="2">
 
         <TextView
-            android:layout_marginTop="20dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:layout_weight="1"
-            android:textSize="30sp"
-            android:text="First Name:" />
+            android:text="First Name:"
+            android:textSize="30sp" />
 
         <TextView
-            android:layout_marginTop="20dp"
+            android:id="@+id/first_name_tv"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:layout_weight="1"
-            android:textSize="30sp"
-            android:id="@+id/first_name_tv" />
+            android:textSize="30sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -32,20 +32,20 @@
         android:weightSum="2">
 
         <TextView
-            android:layout_marginTop="20dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:layout_weight="1"
-            android:textSize="30sp"
-            android:text="Last Name:" />
+            android:text="Last Name:"
+            android:textSize="30sp" />
 
         <TextView
-            android:layout_marginTop="20dp"
+            android:id="@+id/last_name_tv"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:layout_weight="1"
-            android:textSize="30sp"
-            android:id="@+id/last_name_tv" />
+            android:textSize="30sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -54,27 +54,27 @@
         android:weightSum="2">
 
         <TextView
-            android:layout_marginTop="20dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:layout_weight="1"
-            android:textSize="30sp"
-            android:text="Gender:" />
+            android:text="Gender:"
+            android:textSize="30sp" />
 
         <TextView
-            android:layout_marginTop="20dp"
+            android:id="@+id/gender_tv"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:layout_weight="1"
-            android:textSize="30sp"
-            android:id="@+id/gender_tv" />
+            android:textSize="30sp" />
     </LinearLayout>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Visit Profile"
         android:layout_marginTop="100dp"
-        android:onClick="onClick" />
+        android:onClick="onClick"
+        android:text="Visit Profile" />
 
 </LinearLayout>

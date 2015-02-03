@@ -1,6 +1,0 @@
-package com.example.jsonparsing.util;
-
-
-public interface AppConstants {
-    String ACCESS_TOKEN = "CAACEdEose0cBABLWtx7terfNdZAgugHZBEsHC6WqEo7LerAvxH6gyMC5MH792DkYksPZCCNVF9RPtVkYDB2ZC7OBqL6KNcXVPWIIXebCfub5LExbjqO7FTF0AzNEhwjoZCY8G0MOKHoBSI4N7hCbZBTyAKUrGJXJvRWwDhisipvnHgddW3EaeY006hvDBLzRJpak3qztcRrm2ZCpnTQE4BCWSTS3sGEOpkZD";
-}
