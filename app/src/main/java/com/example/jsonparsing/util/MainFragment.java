@@ -42,7 +42,6 @@ public class MainFragment extends android.support.v4.app.Fragment {
         LoginButton authButton = (LoginButton) view.findViewById(R.id.login_button);
         authButton.setFragment(this);
         authButton.setPublishPermissions(Arrays.asList("read_friendlists", "public_profile"));
-
         return view;
     }
 

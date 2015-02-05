@@ -32,7 +32,6 @@ public class MainActivity extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         if (savedInstanceState == null) {
             // Add the fragment on initial activity setup
             mainFragment = new MainFragment();
@@ -53,7 +52,6 @@ public class MainActivity extends FragmentActivity {
                 startActivity(intent);
             }
         });
-
     }
 
     public void onClick(View view) {
@@ -66,7 +64,6 @@ public class MainActivity extends FragmentActivity {
                 getList();
                 arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, Data.friendsList);
                 listView.setAdapter(arrayAdapter);
-
                 break;
             case R.id.clear_button:
                 Data.friendsList.clear();
@@ -82,22 +79,16 @@ public class MainActivity extends FragmentActivity {
         client.get(this, "https://graph.facebook.com/me/friends?access_token=" + Data.ACCESS_TOKEN, new AsyncHttpResponseHandler() {
                     @Override
                     public void onSuccess(int i, Header[] headers, byte[] bytes) {
-
                         String s = new String(bytes);
-
                         try {
-
                             JSONObject jsonObject = new JSONObject(s);
                             JSONArray array = jsonObject.getJSONArray("data");
                             for (int j = 0; j < array.length(); j++) {
                                 Data.friendsList.add(array.getJSONObject(j).getString("name"));
                                 Data.friendsId.add(array.getJSONObject(j).getString("id"));
                                 arrayAdapter.notifyDataSetChanged();
-
                             }
                             progressDialog.dismiss();
-
-
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -111,6 +102,4 @@ public class MainActivity extends FragmentActivity {
                 }
         );
     }
-
-
 }

@@ -27,9 +27,7 @@ public class Details extends Activity {
 
     @Override
     protected void onResume() {
-
         super.onResume();
-
     }
 
     @Override
@@ -45,8 +43,6 @@ public class Details extends Activity {
         progressDialog.setCancelable(false);
         progressDialog.show();
         getDetails();
-
-
     }
 
     public void getDetails() {
@@ -55,11 +51,8 @@ public class Details extends Activity {
             @Override
             public void onSuccess(int i, Header[] headers, byte[] bytes) {
                 String s = new String(bytes);
-
                 try {
                     JSONObject jsonObject = new JSONObject(s);
-
-
                     profileUrl = jsonObject.getString("link");
                     firstNameTv.setText(jsonObject.getString("first_name"));
                     lastNameTv.setText(jsonObject.getString("last_name"));
@@ -68,15 +61,11 @@ public class Details extends Activity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-
             }
 
             @Override
             public void onFailure(int i, Header[] headers, byte[] bytes, Throwable throwable) {
-
             }
-
-
         });
     }
 
@@ -87,6 +76,5 @@ public class Details extends Activity {
         chooser = Intent.createChooser(myWebLink, "Select Browser");
         startActivity(chooser);
     }
-
 }
 
